@@ -1,0 +1,32 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d946ef;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#grad1)" opacity="0.1"/>
+  
+  <!-- Portal ring -->
+  <circle cx="256" cy="256" r="180" fill="none" stroke="url(#grad1)" stroke-width="16" opacity="0.6"/>
+  <circle cx="256" cy="256" r="140" fill="none" stroke="url(#grad1)" stroke-width="12" opacity="0.8"/>
+  
+  <!-- Center symbol -->
+  <path d="M 256 156 L 306 206 L 256 256 L 206 206 Z" fill="url(#grad1)"/>
+  <path d="M 256 256 L 306 306 L 256 356 L 206 306 Z" fill="url(#grad1)" opacity="0.7"/>
+  
+  <!-- Dots around -->
+  <circle cx="256" cy="116" r="12" fill="#0ea5e9"/>
+  <circle cx="356" cy="180" r="12" fill="#0ea5e9" opacity="0.8"/>
+  <circle cx="380" cy="256" r="12" fill="#d946ef" opacity="0.8"/>
+  <circle cx="356" cy="332" r="12" fill="#d946ef"/>
+  <circle cx="256" cy="396" r="12" fill="#d946ef" opacity="0.8"/>
+  <circle cx="156" cy="332" r="12" fill="#0ea5e9" opacity="0.8"/>
+  <circle cx="132" cy="256" r="12" fill="#0ea5e9"/>
+  <circle cx="156" cy="180" r="12" fill="#d946ef" opacity="0.8"/>
+  
+  <!-- Text -->
+  <text x="256" y="460" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="url(#grad1)" text-anchor="middle">AVALON</text>
+</svg>

@@ -1,0 +1,30 @@
+# Security Headers для Netlify/Vercel
+/*
+  # Защита от XSS атак
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  
+  # Content Security Policy - защита от injection атак
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  
+  # Permissions Policy - ограничение доступа к браузерным API
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()
+  
+  # HTTPS enforcement
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  
+  # Защита от clickjacking
+  X-Frame-Options: SAMEORIGIN
+  
+  # Кэширование статических файлов
+  Cache-Control: public, max-age=31536000, immutable
+
+# Отдельные правила для HTML
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Правила для assets
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

@@ -1,0 +1,22 @@
+# robots.txt для Avalon Checker
+
+# Разрешить всем поисковикам
+User-agent: *
+Allow: /
+
+# Запретить доступ к служебным файлам
+Disallow: /release/
+Disallow: /*.exe$
+
+# Карта сайта
+Sitemap: https://avalon-checker.netlify.app/sitemap.xml
+
+# Защита от вредоносных ботов
+User-agent: SemrushBot
+User-agent: AhrefsBot
+User-agent: MJ12bot
+Disallow: /
+
+# Защита от скреперов
+User-agent: *
+Crawl-delay: 1

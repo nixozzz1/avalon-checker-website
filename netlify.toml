@@ -1,0 +1,78 @@
+# Netlify конфигурация для Avalon Checker
+
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Защита от XSS
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Content Security Policy
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval';
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com data:;
+      img-src 'self' data: https:;
+      connect-src 'self' https:;
+      frame-ancestors 'none';
+      base-uri 'self';
+      form-action 'self'
+    """
+    
+    # Permissions Policy
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
+    
+    # HTTPS enforcement (31536000 = 1 год)
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# Кэширование для статических файлов
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML без кэширования
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Редиректы
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+
+# Защита от прямого доступа к exe файлу через веб
+[[redirects]]
+  from = "/release/*"
+  to = "/download"
+  status = 301
+  force = true
+
+# Rate limiting для защиты от DDoS (если доступно в плане)
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+# Environment variables (если нужны)
+[build.environment]
+  NODE_VERSION = "20"

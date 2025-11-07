@@ -1,0 +1,10 @@
+Contact: https://github.com/nixozzz
+Preferred-Languages: ru, en
+Expires: 2026-12-31T23:59:59.000Z
+Canonical: https://avalon-checker.com/.well-known/security.txt
+
+# Политика раскрытия информации
+# Если вы обнаружили уязвимость в нашем приложении или сайте,
+# пожалуйста, сообщите нам через GitHub Issues или Discord
+
+Acknowledgments: https://github.com/nixozzz/avalon-checker/security
