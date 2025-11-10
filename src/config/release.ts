@@ -4,10 +4,8 @@
 export const RELEASE_CONFIG = {
   version: '3.0.0',
   
-  // URL для скачивания
-  // ИНСТРУКЦИЯ: Загрузите файл на https://catbox.moe и вставьте сюда полученную ссылку
-  // Пример: 'https://files.catbox.moe/xxxxx.exe'
-  RELEASE_URL: 'https://files.catbox.moe/ЗАМЕНИТЕ_НА_ВАШ_КОД.exe',
+  // URL для скачивания из GitHub Releases
+  RELEASE_URL: 'https://github.com/nixozzz1/avalon-checker-website/releases/download/v3.0.0/AvalonChecker-Setup-3.0.0.exe',
   
   // Альтернативные источники (если нужно)
   ALTERNATIVE_URLS: {
