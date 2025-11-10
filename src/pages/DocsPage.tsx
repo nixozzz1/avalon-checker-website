@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Book, Download, Settings, Map, Search, Bell } from 'lucide-react';
+import { Book, Download, Settings, Search } from 'lucide-react';
 
 const DocsPage = () => {
   const sections = [
@@ -15,53 +15,22 @@ const DocsPage = () => {
     },
     {
       icon: Search,
-      title: 'Поиск и фильтрация',
+      title: 'Поиск',
       content: [
-        { subtitle: 'Быстрый поиск', text: 'Используйте строку поиска в верхней части приложения для быстрого нахождения нужных порталов по названию зоны.' },
-        { subtitle: 'Фильтры', text: 'Применяйте фильтры по времени распада, типу портала, уровню опасности для более точных результатов.' },
-        { subtitle: 'Сортировка', text: 'Кликните на заголовки колонок для сортировки списка порталов по различным параметрам.' },
-        { subtitle: 'Избранное', text: 'Добавляйте часто используемые порталы в избранное для быстрого доступа.' }
-      ]
-    },
-    {
-      icon: Map,
-      title: 'Работа с картой',
-      content: [
-        { subtitle: 'Просмотр карты', text: 'Переключитесь на вкладку "Карта" для визуализации всех активных порталов на интерактивной карте мира.' },
-        { subtitle: 'Навигация', text: 'Используйте мышь для перемещения по карте и колесико для масштабирования.' },
-        { subtitle: 'Детали портала', text: 'Кликните на портал для просмотра подробной информации о нем.' },
-        { subtitle: 'Построение маршрута', text: 'Выберите несколько порталов для построения оптимального маршрута.' }
+        { subtitle: 'Быстрый поиск', text: 'Используйте строку поиска в верхней части приложения для быстрого нахождения нужных порталов по названию зоны.' }
       ]
     },
     {
       icon: Settings,
       title: 'Настройки',
       content: [
-        { subtitle: 'Интервал обновления', text: 'Настройте частоту автоматического обновления данных (от 30 секунд до 5 минут).' },
-        { subtitle: 'Уведомления', text: 'Включите/выключите уведомления о новых порталах или порталах, близких к распаду.' },
         { subtitle: 'Тема', text: 'Выберите предпочитаемую цветовую схему (темная/светлая).' },
         { subtitle: 'Язык', text: 'Измените язык интерфейса (Русский/English).' },
         { subtitle: 'Автозапуск', text: 'Настройте запуск приложения вместе с Windows.' }
       ]
-    },
-    {
-      icon: Bell,
-      title: 'Уведомления',
-      content: [
-        { subtitle: 'Настройка уведомлений', text: 'В разделе настроек выберите типы событий, о которых хотите получать уведомления.' },
-        { subtitle: 'Звуковые оповещения', text: 'Включите звуковые сигналы для важных событий.' },
-        { subtitle: 'Приоритеты', text: 'Установите приоритеты для различных зон, чтобы получать уведомления только о важных порталах.' }
-      ]
     }
   ];
 
-  const shortcuts = [
-    { keys: 'Ctrl + R', action: 'Обновить данные вручную' },
-    { keys: 'Ctrl + F', action: 'Открыть поиск' },
-    { keys: 'Ctrl + M', action: 'Переключиться на карту' },
-    { keys: 'Ctrl + ,', action: 'Открыть настройки' },
-    { keys: 'Esc', action: 'Закрыть модальное окно' }
-  ];
 
   return (
     <div className="min-h-screen pt-32 pb-20 px-4">
@@ -118,28 +87,6 @@ const DocsPage = () => {
           })}
         </div>
 
-        {/* Keyboard Shortcuts */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 p-8 rounded-2xl glass-effect border border-primary-500/20"
-        >
-          <h2 className="text-2xl font-bold mb-6">Горячие клавиши</h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {shortcuts.map((shortcut, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-between p-4 rounded-lg bg-white/5"
-              >
-                <span className="text-slate-300">{shortcut.action}</span>
-                <kbd className="px-3 py-1.5 text-sm font-semibold bg-slate-800 border border-slate-600 rounded">
-                  {shortcut.keys}
-                </kbd>
-              </div>
-            ))}
-          </div>
-        </motion.div>
 
         {/* Tips */}
         <motion.div
@@ -153,14 +100,6 @@ const DocsPage = () => {
             <li className="flex items-start">
               <span className="w-1.5 h-1.5 rounded-full bg-primary-500 mr-3 mt-2"></span>
               <span>Держите приложение открытым на втором мониторе для мгновенного доступа к информации о порталах</span>
-            </li>
-            <li className="flex items-start">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary-500 mr-3 mt-2"></span>
-              <span>Настройте уведомления для важных зон, чтобы не пропустить выгодные порталы</span>
-            </li>
-            <li className="flex items-start">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary-500 mr-3 mt-2"></span>
-              <span>Используйте фильтры по времени распада, чтобы планировать свои действия заранее</span>
             </li>
             <li className="flex items-start">
               <span className="w-1.5 h-1.5 rounded-full bg-primary-500 mr-3 mt-2"></span>
