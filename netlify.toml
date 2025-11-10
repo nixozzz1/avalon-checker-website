@@ -55,18 +55,32 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# Редиректы
+# SPA fallback - все маршруты отправляются на index.html
+# React Router сам разберется с маршрутизацией
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
   force = false
+  conditions = {Role = [""], Country = []}
 
-# Защита от прямого доступа к exe файлу через веб
+# Исключаем файлы и папки из SPA fallback
 [[redirects]]
-  from = "/release/*"
-  to = "/download"
-  status = 301
+  from = "/assets/*"
+  to = "/assets/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*.js"
+  to = "/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*.css"
+  to = "/:splat"
+  status = 200
   force = true
 
 # Rate limiting для защиты от DDoS (если доступно в плане)

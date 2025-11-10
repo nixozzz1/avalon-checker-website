@@ -1,0 +1,3 @@
+# SPA fallback для React Router
+# Все несуществующие маршруты отправляются на index.html
+/*    /index.html   200
