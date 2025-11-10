@@ -1,0 +1,21 @@
+# Игнорируем большие файлы при деплое на Netlify
+public/release/*.exe
+*.exe
+
+# Development files
+node_modules
+.git
+.github
+
+# Local env files
+.env.local
+.env.*.local
+
+# Editor files
+.vscode
+.idea
+
+# Vercel files (не нужны для Netlify)
+.vercel
+vercel.json
+.vercelignore

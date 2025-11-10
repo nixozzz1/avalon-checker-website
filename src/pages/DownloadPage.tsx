@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Download, CheckCircle2, Monitor, HardDrive, Cpu, Wifi } from 'lucide-react';
+import { RELEASE_CONFIG } from '../config/release';
 
 const DownloadPage = () => {
   return (
@@ -12,7 +13,7 @@ const DownloadPage = () => {
         >
           <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-effect mb-6">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-            <span className="text-sm text-slate-300">Последняя версия 3.0.0</span>
+            <span className="text-sm text-slate-300">Последняя версия {RELEASE_CONFIG.version}</span>
           </div>
 
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
@@ -41,12 +42,12 @@ const DownloadPage = () => {
 
             <div className="flex flex-col items-center space-y-4">
               <a
-                href="/release/AvalonChecker-Setup-3.0.0.exe"
+                href={RELEASE_CONFIG.RELEASE_URL}
                 download
                 className="inline-flex items-center space-x-3 px-10 py-5 bg-white text-primary-600 rounded-xl font-bold text-xl hover:scale-105 transition-transform shadow-2xl"
               >
                 <Download className="w-7 h-7" />
-                <span>Скачать Avalon Checker 3.0.0</span>
+                <span>Скачать Avalon Checker {RELEASE_CONFIG.version}</span>
               </a>
               
               <div className="flex items-center space-x-6 text-white/80 text-sm">
@@ -56,11 +57,11 @@ const DownloadPage = () => {
                 </span>
                 <span className="flex items-center">
                   <HardDrive className="w-4 h-4 mr-2" />
-                  ~510 MB
+                  ~{RELEASE_CONFIG.sizeInMB} MB
                 </span>
                 <span className="flex items-center">
                   <CheckCircle2 className="w-4 h-4 mr-2" />
-                  v3.0.0
+                  v{RELEASE_CONFIG.version}
                 </span>
               </div>
             </div>
@@ -82,7 +83,7 @@ const DownloadPage = () => {
             <ul className="space-y-4 text-slate-300">
               <li className="flex items-start">
                 <Monitor className="w-5 h-5 mr-3 mt-0.5 text-primary-400 flex-shrink-0" />
-                <span><strong className="text-white">ОС:</strong> Windows 10 64-bit</span>
+                <span><strong className="text-white">ОС:</strong> {RELEASE_CONFIG.minOS}</span>
               </li>
               <li className="flex items-start">
                 <Cpu className="w-5 h-5 mr-3 mt-0.5 text-primary-400 flex-shrink-0" />
@@ -116,7 +117,7 @@ const DownloadPage = () => {
             <ul className="space-y-4 text-slate-300">
               <li className="flex items-start">
                 <Monitor className="w-5 h-5 mr-3 mt-0.5 text-accent-400 flex-shrink-0" />
-                <span><strong className="text-white">ОС:</strong> Windows 11 64-bit</span>
+                <span><strong className="text-white">ОС:</strong> {RELEASE_CONFIG.recommendedOS}</span>
               </li>
               <li className="flex items-start">
                 <Cpu className="w-5 h-5 mr-3 mt-0.5 text-accent-400 flex-shrink-0" />

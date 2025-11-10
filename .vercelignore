@@ -1,0 +1,16 @@
+# Игнорируем большие файлы при деплое на Vercel
+public/release/*.exe
+*.exe
+
+# Development files
+node_modules
+.git
+.github
+
+# Local env files
+.env.local
+.env.*.local
+
+# Editor files
+.vscode
+.idea
